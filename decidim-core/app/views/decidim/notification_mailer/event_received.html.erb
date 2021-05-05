@@ -16,4 +16,10 @@
   </p>
 <% end %>
 
+<% if @event_instance.has_button? %>
+  <p class="email-button email-button__cta">
+    <%= link_to @event_instance.button_text, @event_instance.button_url %>
+  </p>
+<% end %>
+
 <p class="email-closing"><%= @event_instance.email_outro %></p>
