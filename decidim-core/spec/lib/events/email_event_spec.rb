@@ -16,7 +16,7 @@ module Decidim
       end
     end
 
-    context "an email event" do
+    context "with an email event" do
       subject do
         TestEvent.new(resource: resource, event_name: "test", user: user)
       end
