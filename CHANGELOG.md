@@ -53,6 +53,8 @@ If your application uses Sidekiq and you set a manual configuration file, you'll
 
 ### Changed
 
+* PR [\#7993](https://github.com/decidim/decidim/pull/7993) allows the addition of user groups as members of assemblies.
+
 ### Fixed
 
 ### Removed
