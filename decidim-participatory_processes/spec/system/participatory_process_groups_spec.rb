@@ -311,7 +311,7 @@ describe "Participatory Process Groups", type: :system do
       before do
         create_list(:proposal, 3, component: proposals_component)
         create_list(:proposal, 7, component: other_process_proposals_component)
-        create_list(:meeting, 4, component: other_process_meetings_component)
+        create_list(:meeting, 4, :published, component: other_process_meetings_component)
 
         # Set same coauthorships for all proposals
         Decidim::Proposals::Proposal.where(component: [proposals_component, other_process_proposals_component]).each do |proposal|
