@@ -11,6 +11,7 @@ module Decidim
       include Decidim::Resourceable
       include Decidim::Followable
       include Decidim::Comments::Commentable
+      include Decidim::Comments::HasAvailabilityAttributes
       include Decidim::ScopableResource
       include Decidim::Authorable
       include Decidim::Reportable
@@ -55,6 +56,14 @@ module Decidim
 
       def self.log_presenter_class_for(_log)
         Decidim::Debates::AdminLog::DebatePresenter
+      end
+
+      def comments_start_time
+        start_time
+      end
+
+      def comments_end_time
+        end_time
       end
 
       # Public: Overrides the `reported_content_url` Reportable concern method.
@@ -106,7 +115,7 @@ module Decidim
         return false unless open?
         return false if closed?
 
-        commentable? && !comments_blocked?
+        commentable? && !comments_blocked? && comments_allowed?
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
